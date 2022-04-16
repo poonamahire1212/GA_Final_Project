@@ -1,0 +1,46 @@
+body{
+    text-align: center;
+    background-image: url('../backgroundImg.jpeg');
+    background-size: cover;
+}
+
+#sevenday{
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+
+}
+#sevenday:hover {
+    background-color: #e7e7e7;
+    color: black;
+  }
+#search-button{
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+
+}
+#search-button:hover {
+    background-color: #e7e7e7;
+    color: black;
+  }
+#search-city{
+    width: 40%;
+    padding: 15px 22px;
+    margin: 10px 5px;
+    box-sizing: border-box;  
+}
+
+
