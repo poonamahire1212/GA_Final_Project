@@ -1,5 +1,4 @@
 import { useState } from "react";
-import moment from 'moment';
 
 const baseUrl = "https://api.openweathermap.org/data/2.5/onecall";
 const apiKey = "044f381b256ee2734702b271f38a2ccc";
