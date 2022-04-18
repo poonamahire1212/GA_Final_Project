@@ -9,7 +9,6 @@ function SevenDayForecast(props){
     let [data, setData] = useState(null);
 
     function dateFormatted(dateLong) {
-        console.log(dateLong);
         //dateLong here is in seconds.. as per the weather API doc
         //convert seconds to miliseconds and then feed it to date contructor
         var dt = new Date(dateLong*1000);
@@ -17,7 +16,8 @@ function SevenDayForecast(props){
     }
 
     function showForecast() {
-        console.log("need to fetch 7 days forecast now!");
+        console.log("fetch 7 days forecast now for these coord ="+ loc.lat +":"+ loc.lon);
+        setData("loading");
         
         //set markup to actual html data 
         const units = "metric";
@@ -37,19 +37,24 @@ function SevenDayForecast(props){
             console.log(data);
         })
         .catch(function(error){
+            console.log(error);
             setData(error.message);
         });
     }
     let markup = '';
 
-    if (data) {
+    if (data === "loading"){
+        markup = <p>Fetching forecast data...</p>;
+    } 
+    else if (data) {
         if (String(data).startsWith("error")) {
             //error scenario, some error received
             markup = <p>{data}</p>;
         } else {
 
             let daysForecast = []
-            for(let i = 0; i < data.daily.length; i++) {
+            for(let i = 1; i < data.daily.length; i++) {
+                //skip first entry in the array for today's weather
                 daysForecast.push(<p><b>{dateFormatted(data.daily[i].dt)}:</b> {data.daily[i].temp.max} / {data.daily[i].temp.min} &#8451;</p>);
             }
 

@@ -32,6 +32,7 @@ function WeatherSearch(){
                 
         })
         .then(function (data){
+            console.log(data);
             setData(data);
         }).catch(function(error){
             console.log(error.message);
