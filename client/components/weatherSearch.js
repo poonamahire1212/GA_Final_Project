@@ -42,7 +42,7 @@ function WeatherSearch(){
     let markup = <p>There is no data to show</p>;
     
     if (data === "loading"){
-        markup = <p>Making the AJAX request</p>;
+        markup = <p>Fetching weather data...</p>;
     } 
     else if (data){
         if (String(data).startsWith("error")) {
@@ -55,8 +55,8 @@ function WeatherSearch(){
                 <div>
                     <h3>Showing current weather at: {data.name} </h3>
                     <p>Current temperature: {data.main.temp} &#8451;</p>
-                    <p>Minimum today: {data.main.temp_min} &#8451;</p>
                     <p>Maximum today: {data.main.temp_max} &#8451;</p>
+                    <p>Minimum today: {data.main.temp_min} &#8451;</p>
                     <SevenDayForcast data={data.coord}/>
                 </div>
             );

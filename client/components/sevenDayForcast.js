@@ -10,10 +10,9 @@ function SevenDayForecast(props){
 
     function dateFormatted(dateLong) {
         console.log(dateLong);
-        //debugger;
-        //return moment.unix(dateLong).format();
+        //dateLong here is in seconds.. as per the weather API doc
+        //convert seconds to miliseconds and then feed it to date contructor
         var dt = new Date(dateLong*1000);
-        console.log("sdfsdfsf ====" + dt.toString());
         return dt.getUTCDate() + "/" + dt.getUTCMonth();
     }
 
@@ -56,7 +55,7 @@ function SevenDayForecast(props){
 
             markup = (
                 <div>
-                    <h3>Showing 7 day forecast: </h3>
+                    <h3>Showing 7 day forecast (max/min): </h3>
                     {daysForecast}
                     
                 </div>
